@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سباردا - قراءة المانهوا</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.4/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #1a1a1a; color: #f0f0f0; }
+        .card:hover { transform: scale(1.05); transition: 0.3s; }
+        .chapter img { max-width: 100%; margin-bottom: 10px; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+```
+<!-- Header -->
+<header class="bg-purple-800 p-4 text-center text-white text-2xl font-bold flex justify-between items-center">
+    <span>سباردا - قراءة المانهوا</span>
+    <!-- Hamburger -->
+    <div class="relative">
+        <button id="menuBtn" class="p-2 bg-purple-700 text-white rounded">☰</button>
+        <div id="menu" class="absolute right-0 mt-2 w-48 bg-gray-800 text-white rounded shadow-lg hidden">
+            <a href="#" class="block px-4 py-2 hover:bg-purple-700">الصفحة الرئيسية</a>
+            <a href="#" class="block px-4 py-2 hover:bg-purple-700">المانهوا</a>
+            <a href="#" class="block px-4 py-2 hover:bg-purple-700">الفصول</a>
+            <a href="#" class="block px-4 py-2 hover:bg-purple-700">العضويات</a>
+            <a href="#" class="block px-4 py-2 hover:bg-purple-700">تسجيل الدخول</a>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<main class="flex-1 p-6">
+
+    <!-- Featured Maanhua -->
+    <section>
+        <h2 class="text-xl mb-4 font-semibold">أحدث المانهوا</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="card bg-gray-800 p-2 rounded shadow cursor-pointer">
+                <img src="https://via.placeholder.com/150x220" alt="مانهوا 1" class="rounded">
+                <h3 class="mt-2 text-center">مانهوا 1</h3>
+            </div>
+            <div class="card bg-gray-800 p-2 rounded shadow cursor-pointer">
+                <img src="https://via.placeholder.com/150x220" alt="مانهوا 2" class="rounded">
+                <h3 class="mt-2 text-center">مانهوا 2</h3>
+            </div>
+            <div class="card bg-gray-800 p-2 rounded shadow cursor-pointer">
+                <img src="https://via.placeholder.com/150x220" alt="مانهوا 3" class="rounded">
+                <h3 class="mt-2 text-center">مانهوا 3</h3>
+            </div>
+            <div class="card bg-gray-800 p-2 rounded shadow cursor-pointer">
+                <img src="https://via.placeholder.com/150x220" alt="مانهوا 4" class="rounded">
+                <h3 class="mt-2 text-center">مانهوا 4</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapters / Reader -->
+    <section class="mt-8">
+        <h2 class="text-xl mb-4 font-semibold">قارئ المانهوا</h2>
+        <div class="chapter bg-gray-800 p-4 rounded shadow">
+            <h3 class="mb-2 text-lg font-medium">مانهوا 1 - الفصل 1</h3>
+            <div class="images">
+                <img src="https://via.placeholder.com/800x1200" alt="صفحة 1">
+                <img src="https://via.placeholder.com/800x1200" alt="صفحة 2">
+                <img src="https://via.placeholder.com/800x1200" alt="صفحة 3">
+            </div>
+            <div class="mt-4 flex justify-between">
+                <button class="bg-purple-600 px-4 py-2 rounded hover:bg-purple-700">الفصل السابق</button>
+                <button class="bg-purple-600 px-4 py-2 rounded hover:bg-purple-700">الفصل التالي</button>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-purple-900 p-4 text-center text-white mt-6">
+    جميع الحقوق محفوظة © سباردا 2025
+</footer>
+
+<!-- Scripts -->
+<script>
+    // Hamburger Menu
+    const menuBtn = document.getElementById('menuBtn');
+    const menu = document.getElementById('menu');
+    menuBtn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
+
+    // Demo Login and Roles
+    const users = [
+        {email: "n5wa233@gmail.com", role: "Admin"},
+        {email: "cddddgdd@gmail.com", role: "Admin"},
+        {email: "user1@example.com", role: "فارس قاري"},
+        {email: "user2@example.com", role: "كارثة بشرية"},
+        {email: "user3@example.com", role: "الساحر القاري"}
+    ];
+
+    function loginDemo(){
+        const email = prompt("ادخل بريدك الإلكتروني:");
+        const user = users.find(u => u.email === email);
+        if(user){
+            alert(`تم تسجيل الدخول كـ ${user.role}`);
+            if(user.role === "Admin"){
+                document.body.insertAdjacentHTML('afterbegin', '<div class="bg-green-600 text-white p-2 text-center">لوحة تحكم الأدمن</div>');
+            }
+        } else {
+            alert("هذا البريد غير مسجل");
+        }
+    }
+
+    // Call demo login on clicking "تسجيل الدخول"
+    document.querySelector('#menu a:last-child').addEventListener('click', (e) => {
+        e.preventDefault();
+        loginDemo();
+    });
+</script>
+```
+
+</body>
+</html>
+
